@@ -1,0 +1,79 @@
+<!DOCTYPE html>  
+{% load static %}
+<link 
+rel = "stylesheet"
+type = "text/css"
+href = "{% static '/bootstrap/css/bootstrap.min.css' %}"
+/>
+<html lang="en">
+<head>  
+    <style>
+        @media (min-width: 576px) {
+            .h-sm-100 {
+                height: 100%;
+            }
+        }
+    </style>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- semantic UI --> 
+    <link rel="stylesheet" type='text/css'
+        href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/semantic.min.css">
+    <!--Chart js-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"
+        integrity="sha256-Uv9BNBucvCPipKQ2NS9wYpJmi8DTOEfTA/nH2aoJALw=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.css"
+        integrity="sha256-aa0xaJgmK/X74WM224KMQeNQC2xYKwlAt08oZqjeF0E=" crossorigin="anonymous" />
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+</head>  
+<body>  
+
+    
+    <nav class="navbar justify-content-center" style="background-color: #171b62;">
+        <img src="{% static 'images/logo.png' %}" width="60" height="60" class="d-inline-block align-top" alt="">
+    <div class="px-5">
+        <h1 style="color: white;">Ethiopian Artificial Intelligence Institute</h1> 
+    </div>
+    </nav>
+    
+    <div class="container">
+       {% block content %}
+       
+        {% endblock %}
+
+        <!-- <div class="col">
+            <div class="row">
+                <button onclick="clearImage()" class="btn btn-primary mt-3">Segment</button>
+            </div>
+            <div class="row">
+                <button onclick="clearImage()" class="btn btn-primary mt-3">Explain</button>
+            </div>
+        </div> -->
+   </div>
+
+<script type="text/javascript"> 
+  var result;
+    $('.uploadbutton').click(function(){ 
+        var dataURL = $("#formFile").val()
+        var blob = dataURItoBlob(dataURL)
+        var formData = new FormData()
+        formData.append('access_token', token)
+        formData.append('source', blob)
+    $.ajax( 
+    { 
+        type:"GET", 
+        url: "upload", 
+        data: formData,
+        success: function( response ) 
+        { 
+            $( '#upload').removeClass('btn btn-primary btn-lg'); 
+            $( '#upload').addClass('btn btn-success btn-lg'); 
+            document.getElementById("message").innerHTML = 'files: '+response
+        } 
+      })
+    });
+    </script>
+</body>  
+</html>  

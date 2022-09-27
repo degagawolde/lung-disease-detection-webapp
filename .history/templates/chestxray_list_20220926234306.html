@@ -1,0 +1,51 @@
+{% extends 'index.html' %} {% block body %}
+<div class="row">
+    <div class="col col-md-4">
+        <a href="{% url 'DiseaseClassification:add' %}" class="nav-link m-2"><button class="btn btn-sm btn-primary" id="upload">
+				<i class="fas fa-upload"></i> Upload new image
+			</button></a
+		>
+	</div>
+	<div class="col col-md-8">
+			<div class="disease-banner">
+				<span class="badge m-1 mt-4"><h6 class="text-dark">
+					Possible Abnormalities:</h6>
+				</span>
+				<span class="badge m-1"  style="background-color: rgb(155, 0, 0)">
+                    TB
+				</span>
+				<span class="badge m-1"style="background-color: rgb(155, 132, 0)">
+                    NTB
+				</span>
+				<span class="badge m-1"style="background-color: rgb(155, 132, 0)">
+                    NORM
+				</span>
+			</div>	
+	</div>
+</div>
+	<div class="row">
+		{% for pic in pictures %}
+		<div class="col-lg-3 col-md-4 col-sm-6 mt-2">
+			<div class="card" style>
+				<a href="{% url 'DiseaseClassification:detail' pic.id %}">
+					<img
+						src="{{pic.image.url}}"
+						class="card-img-top"
+						width="200"
+						height="350"
+					/>
+				</a>
+        <div class="card-body">
+            <h6 class="card-title" style="overflow-x: hidden;
+			text-indent: -53px;">
+                {{pic.image}}
+
+            </h6>
+
+            <p class="card-text">{{pic.dateOfSubmission}}</p>
+        </div>
+    </div>
+</div>
+{% endfor %} {% endblock body %}
+</div>
+</div>

@@ -1,0 +1,26 @@
+{% load static %}  
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <title>lung-disease-detection</title>  
+    <link 
+        rel = "stylesheet"
+        type = "text/css"
+        href="{% static 'bootstrap/css/bootstrap.min.css' %}" >  
+    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>  
+    <script>alert();</script>  
+</head>  
+<body>  
+    
+    <nav class="navbar justify-content-center" style="background-color: #171b62;">
+        <img src="{% static 'images/logo.png' %}" width="60" height="60" class="d-inline-block align-top" alt="">
+    <div class="">
+        <h1 style="color: white;">Ethiopian Artificial Intelligence Institute</h1> 
+    </div>
+    </nav>
+     {% block content %}
+     {% endblock %}
+        </main>
+</body>  
+</html>  

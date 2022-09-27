@@ -1,0 +1,100 @@
+body {
+	background: rgb(214, 214, 214) !important;
+}
+h6 {
+	font-family: monospace;
+	font-size: medium;
+}
+.treatment-table {
+	font-family: monospace;
+	font-size: small;
+}
+.navbar {
+	background: rgb(38, 44, 68);
+}
+.navbar-brand {
+	font-family: monospace;
+	color: #f8931d;
+	font-size: 1.5em;
+	font-weight: bold;
+	padding: 1px;
+}
+.navbar-toggler-icon {
+	background: rgb(194, 174, 218);
+}
+.navbar-toggler {
+	background: rgb(196, 90, 155);
+}
+.nav-link {
+	font-family: monospace;
+	color: rgb(252, 252, 252);
+	cursor: pointer;
+}
+.nav-link h6 {
+	color: #f8931d;
+}
+.nav-link:hover {
+	color: teal;
+}
+.card {
+	padding: 1px;
+	background: rgba(0, 43, 44, 0.945);
+}
+.card-body {
+	background: rgb(0, 15, 58);
+}
+.card-title {
+	font-family: monospace;
+	font-size: medium;
+	color: #f8931d;
+}
+.disease-banner {
+	font-family: monospace;
+	font-size: large;
+}
+.card-text {
+	font-family: monospace;
+	font-size: small;
+	color: rgb(229, 233, 222);
+}
+.card-header {
+	font-family: monospace;
+	font-size: medium;
+	color: rgb(229, 233, 222);
+}
+.detail-row {
+	margin: 2px;
+}
+.card-header h5 {
+	color: rgb(255, 255, 255);
+	font-family: cursive;
+}
+.form-group {
+	margin: 2px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+	font-family: monospace;
+}
+#form-container {
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+.pic-description {
+	align-items: center;
+}
+.description-header {
+	font-family: monospace;
+	font-size: xx-large;
+	color: #f8931d;
+	text-align: center;
+}
+.description-text {
+	font-family: monospace;
+	font-size: small;
+	color: black;
+}

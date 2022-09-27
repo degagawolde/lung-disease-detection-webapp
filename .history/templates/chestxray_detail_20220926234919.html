@@ -1,0 +1,64 @@
+{% extends 'index.html' %} {% block body %}
+<div class="row m-2">
+    <div class="col-lg-6 col-md-8 col-sm-12">
+        <div class="card">
+            <div class="card-header">
+                <h6 class="card-title texr-warning" style="overflow-x: hidden;
+                text-indent: -53px;">
+                    {{picture.image}}
+
+                </h6>
+                <p class="card-text text-primary">{{picture.dateOfSubmission}}</p>
+
+            </div>
+            <img src="{{picture.image.url}}" class="card-img-top" />
+            
+            <div class="card-body bg-secondary">
+               
+                <a href="{% url 'DiseaseClassification:delete' picture.id %}">
+                    <button class="btn btn-lg btn-danger">
+						<i class="fas fa-trash"></i>
+					</button>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6 col-md-4 col-sm-12">
+        <div class="pic-description">
+            <h6 class="description-header">Detected Abnormalities</h6>
+
+            <table class="table table-striped treatment-table mt-4" style="font-size: large;">
+                <thead table-dark>
+                    <tr class="table-primary">
+                        <th class="th-lg">No</th>
+                        <th class="th-lg">Abnormality</th>
+                        <th class="th-md">Confidence</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for disease in dx %}
+                    <tr>
+                        <td>{{ disease.0}} </td>
+                        <td style="color: rgb({{disease.2.0}},{{disease.2.1}},{{disease.2.2}});">{{disease.0}}</td>
+                        <td>
+                            {% if disease.1 < 60 %}
+                                <span class="badge badge-danger"> {{disease.1}}%</span>
+
+                                {% else %}
+                                <span class="badge badge-success"> {{disease.1}}%</span> {% endif %}
+
+                        </td>
+                    </tr>
+                    {% endfor %}
+
+                </tbody>
+
+            </table>
+
+
+        </div>
+    </div>
+</div>
+
+{% endblock body %}

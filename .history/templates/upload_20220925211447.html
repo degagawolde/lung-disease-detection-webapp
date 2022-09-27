@@ -1,0 +1,15 @@
+{% extends 'index.html' %}
+{% block content %}
+<div class="mb-5">
+    <form method="post",enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="Image" class="form-label">{{ text }}</label>
+        <input class="form-control" type="file" id="formFile" name="myfile",onchange="preview()">
+        <button onclick="clearImage()" class="btn btn-primary mt-3">Upload Image</button>
+    </form>
+    {% if uploaded_file_url %}
+        <p>File uploaded at: <a href="{{ uploaded_file_url }}">{{ uploaded_file_url }}</a></p>
+    {% endif %}
+</div>
+<img id="frame" src="" class="img-fluid" />
+{% endblock %}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>  
+{% load static %}
+<link 
+rel = "stylesheet"
+type = "text/css"
+href = "{% static '/bootstrap/css/bootstrap.min.css' %}"
+/>
+<html lang="en">
+<head>  
+    <style>
+        @media (min-width: 576px) {
+            .h-sm-100 {
+                height: 100%;
+            }
+        }
+    </style>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- semantic UI --> 
+    <link rel="stylesheet" type='text/css'
+        href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/semantic.min.css">
+    <!--Chart js-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"
+        integrity="sha256-Uv9BNBucvCPipKQ2NS9wYpJmi8DTOEfTA/nH2aoJALw=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.css"
+        integrity="sha256-aa0xaJgmK/X74WM224KMQeNQC2xYKwlAt08oZqjeF0E=" crossorigin="anonymous" />
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+</head>  
+<body>  
+    <nav class="navbar justify-content-center" style="background-color: #171b62;">
+        <img src="{% static 'images/logo.png' %}" width="60" height="60" class="d-inline-block align-top" alt="">
+    <div class="px-5">
+        <h1 style="color: white;">Ethiopian Artificial Intelligence Institute</h1> 
+    </div>
+    </nav>
+    <div class="container-fluid overflow-hidden">
+    <div class="row vh-100 overflow-auto">
+        <div class="col-12 col-sm-3 col-xl-2 px-sm-2 px-0 bg-light d-flex sticky-top">
+            
+        </div>
+        <div class="col d-flex flex-column h-sm-100">
+            <main class="row overflow-auto">
+                <div class="col pt-4">
+                    <h3>Vertical Sidebar that switches to Horizontal Navbar</h3>
+                    <p class="lead">An example multi-level sidebar with collasible menu items. The menu functions like an "accordion" where only a single menu is be open at a time.</p>
+                    <hr />
+                    <h3>More content...</h3>
+                    <p>Sriracha biodiesel taxidermy organic post-ironic, Intelligentsia salvia mustache 90's code editing brunch. Butcher polaroid VHS art party, hashtag Brooklyn deep v PBR narwhal sustainable mixtape swag wolf squid tote bag. Tote bag cronut semiotics, raw denim deep v taxidermy messenger bag. Tofu YOLO Etsy, direct trade ethical Odd Future jean shorts paleo. Forage Shoreditch tousled aesthetic irony, street art organic Bushwick artisan cliche semiotics ugh synth chillwave meditation. Shabby chic lomo plaid vinyl chambray Vice. Vice sustainable cardigan, Williamsburg master cleanse hella DIY 90's blog.</p>
+                    <p>Ethical Kickstarter PBR asymmetrical lo-fi. Dreamcatcher street art Carles, stumptown gluten-free Kickstarter artisan Wes Anderson wolf pug. Godard sustainable you probably haven't heard of them, vegan farm-to-table Williamsburg slow-carb readymade disrupt deep v. Meggings seitan Wes Anderson semiotics, cliche American Apparel whatever. Helvetica cray plaid, vegan brunch Banksy leggings +1 direct trade. Wayfarers codeply PBR selfies. Banh mi McSweeney's Shoreditch selfies, forage fingerstache food truck occupy YOLO Pitchfork fixie iPhone fanny pack art party Portland.</p>
+                </div>
+            </main>
+        </div>
+    </div>
+</div>
+     {% block content %}
+     {% endblock %}
+
+    <footer class="row py-4 mt-auto" style="background-color: #171b62;">
+        <div class="col justify-content-center" style="color: white"> Copy Right @ EAII, 2022 </div>
+    </footer>
+        
+</body>  
+</html>  

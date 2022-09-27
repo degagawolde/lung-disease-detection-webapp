@@ -1,0 +1,21 @@
+{% extends 'index.html' %} {% block body %}
+<div class="row">
+    <div class="col">
+    <div class="form-group">
+
+        <h5 class="text-dark">Are you sure, you want to delete picture?</h5>
+        <form action="" method="post">
+            {%csrf_token%}
+                <a href="{% url 'list' %}"class="btn btn-md btn-success">Cancel</a>
+                <button class="btn btn-md btn-danger" type="submit">Delete</button>
+                 
+            </div>
+        </form>
+        {% for message in messages %}
+				<p>{{message}}</p>
+				{% endfor %}
+    </div>
+    </div>
+    
+</div>
+{% endblock body %}
