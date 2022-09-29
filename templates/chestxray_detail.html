@@ -2,37 +2,43 @@
 <div class="row m-2">
     <div class="col-lg-6 col-md-8 col-sm-12">
         <div class="card">
-            <div class="card-header">
+            <div class="card-header inline">
                 <!-- <h6 class="card-title texr-warning" style="overflow-x: hidden;
                 text-indent: -53px;">
                     {{picture.image}}
 
                 </h6> -->
-                <p class="card-text text-primary">{{picture.dateOfSubmission}}</p>
+                <div class="row">
+                    <div class="col-md-11">
+                        <p class="card-text text-primary">{{picture.dateOfSubmission}}</p>
+                    </div>
+                    <div class="col-md-1">
+                         <a href="{% url 'DiseaseClassification:delete' picture.id %}">
+                            <button class="btn btn-sm btn-danger">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </a>
+                    </div>
 
+                </div>
+                
             </div>
-            <img src="{{picture.image.url}}" class="card-img-top" />
             
             <div class="card-body bg-secondary">
-               
-                <a href="{% url 'DiseaseClassification:delete' picture.id %}">
-                    <button class="btn btn-lg btn-danger">
-						<i class="fas fa-trash"></i>
-					</button>
-                </a>
+                <img src="{{picture.image.url}}" class="card-img-top" />
 
             </div>
         </div>
     </div>
     <div class="col-lg-6 col-md-4 col-sm-12">
         <div class="pic-description">
-            <h6 class="description-header">Detected Abnormalities</h6>
+            <h6 class="description-header"></h6>
 
             <table class="table table-striped treatment-table mt-4" style="font-size: large;">
                 <thead table-dark>
                     <tr class="table-primary">
                         <th class="th-lg">Patient ID</th>
-                        <th class="th-lg">Abnormality</th>
+                        <th class="th-lg">Diagnosis Result</th>
                         <!-- <th class="th-md">Confidence</th> -->
 
                     </tr>
