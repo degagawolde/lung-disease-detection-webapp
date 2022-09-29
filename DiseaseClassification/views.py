@@ -48,9 +48,9 @@ class PicAdd(View):
             cam_path = os.path.join("media/cams",image_path.split("/")[-1].replace("%20"," ")) 
             cv2.imwrite(cam_path,r_image)
             
-            labels = ['Normal','Abnormal & Not TB','TB']
-            obj.diagnosis = json.dumps(labels[(np.argmax(pred))])
-            obj.confidence = json.dumps(float(np.max(pred))*100)
+            labels = ['Healthy','Non-TB Abnormality','Tuberclosis']
+            obj.diagnosis = labels[(np.argmax(pred))]
+            obj.confidence = float(np.max(pred)*100)
             obj.save()
             
             return redirect('DiseaseClassification:list')
@@ -76,12 +76,12 @@ class PicDetail(View):
     def get(self,request,pk):
         template_name = 'chestxray_detail.html'
         picture = self.model.objects.get(id = pk)
-        dx = json.loads(picture.diagnosis)
+        dx = picture.diagnosis
         cn = picture.confidence
         #dx=eval(dx.split()[0])
-        
+        name = str(picture.image).split('/')[-1].split('.')[0]
         print([picture.pk,dx,cn])
-        context = {'picture':picture,'dx':[picture.pk,dx,cn]}
+        context = {'picture':picture,'name':name,'dx':[picture.pk,dx,cn]}
         
         return render(request,template_name=template_name,context=context)
 

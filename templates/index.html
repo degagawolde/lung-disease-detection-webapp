@@ -34,6 +34,16 @@
 		<link rel="stylesheet" href="{% static 'style.css' %}" />
 	</head>
 	<body>
+		<script>
+            function preview() {
+                frame.src = URL.createObjectURL(event.target.files[0]);
+            }
+            function clearImage() {
+                document.getElementById('formFile').value = null;
+                frame.src = "";
+            }
+        </script>
+		
 		{%include 'navbar.html'%}
 		<div class="container">{% block body %} {% endblock body %}</div>
 	</body>
