@@ -5,4 +5,4 @@ from .models import Diagnosis
 class DiagnosisForm(ModelForm):
     class Meta:
         model = Diagnosis
-        exclude = ["diagnosis","confidence"]
+        exclude = ["image","diagnosis","confidence"]
