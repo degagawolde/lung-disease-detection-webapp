@@ -46,7 +46,7 @@ class PicAdd(View):
             r_image = exp.explanation(model, 'GradCAM', image_path, 'out_relu')
             
             cam_path = os.path.join("media/cams",image_path.split("/")[-1].replace("%20"," ")) 
-            cv2.imwrite(cam_path,r_image)
+            cv2.imwrite(image_path,r_image)
             
             labels = ['Normal','Abnormal & Not TB','TB']
             obj.diagnosis = json.dumps(labels[(np.argmax(pred))])

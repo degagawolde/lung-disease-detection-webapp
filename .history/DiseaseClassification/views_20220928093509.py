@@ -42,12 +42,9 @@ class PicAdd(View):
             img = np.reshape(img,(1,256,256,3))
             
             pred = model.predict(img)
-            
-            r_image = exp.explanation(model, 'GradCAM', image_path, 'out_relu')
-            
-            cam_path = os.path.join("media/cams",image_path.split("/")[-1].replace("%20"," ")) 
-            cv2.imwrite(cam_path,r_image)
-            
+            # r_image = cv2.cvtColor(r_image, cv2.COLOR_BGR2RGB)
+        
+            # cv2.imwrite(image_path,r_image)
             labels = ['Normal','Abnormal & Not TB','TB']
             obj.diagnosis = json.dumps(labels[(np.argmax(pred))])
             obj.confidence = json.dumps(float(np.max(pred))*100)
