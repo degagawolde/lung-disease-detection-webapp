@@ -20,6 +20,7 @@
 						<i class="fas fa-trash"></i>
 					</button>
                 </a>
+
             </div>
         </div>
     </div>
@@ -30,24 +31,24 @@
             <table class="table table-striped treatment-table mt-4" style="font-size: large;">
                 <thead table-dark>
                     <tr class="table-primary">
-                        <th class="th-lg">No</th>
+                        <th class="th-lg">Patient ID</th>
                         <th class="th-lg">Abnormality</th>
-                        <th class="th-md">Confidence</th>
+                        <!-- <th class="th-md">Confidence</th> -->
 
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>{{ dx.0}} </td>
+                        <td>{{ name}} </td>
                         <td style="color: rgb({{dx.1}},{{dx.1}},{{dx.1}});">{{dx.1}}</td>
-                        <td>
+                        <!-- <td>
                             {% if dx.1 < 60 %}
                                 <span class="badge badge-danger"> {{dx.2}}%</span>
 
                                 {% else %}
                                 <span class="badge badge-success"> {{dx.2}}%</span> {% endif %}
 
-                        </td>
+                        </td> -->
                     </tr>
 
                 </tbody>
