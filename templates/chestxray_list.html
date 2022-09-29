@@ -6,26 +6,10 @@
 			</button></a
 		>
 	</div>
-	<div class="col col-md-8">
-			<div class="disease-banner">
-				<span class="badge m-1 mt-4"><h6 class="text-dark">
-					Possible Abnormalities:</h6>
-				</span>
-				<span class="badge m-1"  style="background-color: rgb(155, 132, 0)">
-                    TB
-				</span>
-				<span class="badge m-1"style="background-color: rgb(155, 132, 0)">
-                    NTB
-				</span>
-				<span class="badge m-1"style="background-color: rgb(155, 132, 0)">
-                    NORM
-				</span>
-			</div>	
-	</div>
 </div>
 	<div class="row">
 		{% for pic in pictures %}
-		<div class="col-lg-3 col-md-4 col-sm-6 mt-2">
+		<div class="col-lg-6 col-md-4 col-sm-12 mt-2">
 			<div class="card" style>
 				<a href="{% url 'DiseaseClassification:detail' pic.id %}">
 					<img
@@ -35,7 +19,7 @@
 						height="350"
 					/>
 				</a>
-        <div class="card-body">
+        <div class="card-body ">
             <h6 class="card-title" style="overflow-x: hidden;
 			text-indent: -53px;">
                 {{name}}
@@ -43,7 +27,12 @@
             </h6>
 
             <p class="card-text">{{pic.dateOfSubmission}}</p>
-			<p class="card-text">{{pic.diagnosis}}</p>
+			{% if pic.diagnosis == "Healthy"%}
+				<span class="badge badge-success">{{pic.diagnosis}}</span>
+		
+			{%else%}
+				<span class="badge badge-danger">{{pic.diagnosis}}</span>
+				{%endif%}	
 			<a href="{% url 'DiseaseClassification:detail' pic.id %}">
 			
 			</a>
