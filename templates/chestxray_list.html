@@ -38,12 +38,15 @@
         <div class="card-body">
             <h6 class="card-title" style="overflow-x: hidden;
 			text-indent: -53px;">
-                {{pic.image}}
+                {{name}}
 
             </h6>
 
             <p class="card-text">{{pic.dateOfSubmission}}</p>
 			<p class="card-text">{{pic.diagnosis}}</p>
+			<a href="{% url 'DiseaseClassification:detail' pic.id %}">
+			
+			</a>
         </div>
     </div>
 </div>

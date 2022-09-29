@@ -4,6 +4,7 @@ from django.http import HttpResponse
 from django.views import View
 from django.views.generic import DeleteView
 from django.urls import reverse_lazy
+from django.core.files.storage import FileSystemStorage
 import json
 import sys,os
 
@@ -28,15 +29,20 @@ class PicAdd(View):
         return render(request,template_name=self.template_name,context=self.context)
 
     def post(self,request):
-        createForm = DiagnosisForm(request.POST, request.FILES)
-        print(createForm)
-        if createForm.is_valid():
-            print("It is valid")
-            obj = createForm.save(commit=False)
-            print("Prediction: ",obj.diagnosis)
-            obj.save()
-            image_path=obj.image.url
-            image_path = os.path.join("media/images",image_path.split("/")[-1].replace("%20"," "))
+        # createForm = DiagnosisForm(request.POST, request.FILES)
+    
+        if request.method == 'POST' and request.FILES['myfile']:
+            
+            myfile = request.FILES['myfile']
+            fss = FileSystemStorage()
+    
+            file = fss.save(myfile.name, myfile)
+            file_url = fss.url(file)
+            
+            filename =file_url.split("/")[-1].replace("%20"," ")
+            image_path = os.path.join("media",file_url.split("/")[-1].replace("%20"," "))
+            print('************',image_path)
+             
             im= cv2.imread(image_path)
             img = cv2.resize(im, (256,256), interpolation = cv2.INTER_AREA)
             img = np.reshape(img,(1,256,256,3))
@@ -49,11 +55,14 @@ class PicAdd(View):
             cv2.imwrite(cam_path,r_image)
             
             labels = ['Healthy','Non-TB Abnormality','Tuberclosis']
+            
+            obj = Diagnosis(image=filename)
             obj.diagnosis = labels[(np.argmax(pred))]
             obj.confidence = float(np.max(pred)*100)
             obj.save()
             
-            return redirect('DiseaseClassification:list')
+            return PicDetail().get(request,obj.pk)
+            # return redirect('DiseaseClassification:list')
 
         return render(request,template_name=self.template_name,context=self.context)
 
@@ -64,7 +73,6 @@ class PicList(View):
     def get(self,request):
         template_name = 'chestxray_list.html'
         pictures = self.model.objects.all()
-        print(pictures)
         context = {'pictures':pictures}
         return render(request,template_name=template_name,context=context)
 

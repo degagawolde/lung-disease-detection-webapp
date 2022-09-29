@@ -4,11 +4,15 @@
 	<div class="col">
 		<div class="form-group">
 			<form action="" method="post" enctype="multipart/form-data">
-				{%csrf_token%} {{form|crispy}}
+				{%csrf_token%} 
+				<!-- {{form|crispy}} -->
+				 <input class="form-control" type="file" name='myfile',id="formFile" onchange="preview()">
 				<button class="btn btn-md btn-success m-2" type="submit">
-					SUBMIT
+					Diagnosis
 				</button>
+
 			</form>
+			 <img id="frame" src="" class="img-fluid" />
 		</div>
 	</div>
 </div>
